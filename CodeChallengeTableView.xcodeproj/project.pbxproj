@@ -14,6 +14,7 @@
 		9F4DD92E2137798A0065B738 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F4DD92C2137798A0065B738 /* LaunchScreen.storyboard */; };
 		9F4DD936213884130065B738 /* TopTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4DD935213884130065B738 /* TopTabItem.swift */; };
 		9F4DD938213884440065B738 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4DD937213884440065B738 /* FilterView.swift */; };
+		9F4DD93B2139FA4E0065B738 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4DD93A2139FA4E0065B738 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9F4DD92F2137798A0065B738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F4DD935213884130065B738 /* TopTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabItem.swift; sourceTree = "<group>"; };
 		9F4DD937213884440065B738 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		9F4DD93A2139FA4E0065B738 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				9F4DD92C2137798A0065B738 /* LaunchScreen.storyboard */,
 				9F4DD939213884550065B738 /* views */,
 				9F4DD92F2137798A0065B738 /* Info.plist */,
+				9F4DD93C2139FA530065B738 /* controllers */,
 			);
 			path = CodeChallengeTableView;
 			sourceTree = "<group>";
@@ -97,6 +100,14 @@
 				9F4DD935213884130065B738 /* TopTabItem.swift */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		9F4DD93C2139FA530065B738 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9F4DD93A2139FA4E0065B738 /* HomeViewController.swift */,
+			);
+			path = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +229,7 @@
 				9F4DD936213884130065B738 /* TopTabItem.swift in Sources */,
 				9F4DD938213884440065B738 /* FilterView.swift in Sources */,
 				9F4DD924213779870065B738 /* AppDelegate.swift in Sources */,
+				9F4DD93B2139FA4E0065B738 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
