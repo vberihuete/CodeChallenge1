@@ -36,4 +36,16 @@ struct EventConfigurator{
             handler(events, statusCode)
         }
     }
+    
+    /// Filters if provided a given list of events based on a criteria. if it's not provided the server will be issued
+    ///
+    /// - Parameters:
+    ///   - searchCriteria: The string to look for
+    ///   - events: The list of events to search into (optional)
+    ///   - handler: The completion handler that provides the results
+    /// - Returns: The event that match with the search criteria
+    func filterEvents(with searchCriteria: String, on events: [Event] = [], completionHandler handler: ([Event]) -> ()){
+        //TODO: implement server search on empty events
+        handler(eventWorker.filterEvents(with: searchCriteria, on: events))
+    }
 }

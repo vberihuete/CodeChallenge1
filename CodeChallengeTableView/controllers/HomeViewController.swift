@@ -23,9 +23,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        SVProgressHUD.show()
         EventConfigurator.shared.loadEvents{ events, statusCode in
+            SVProgressHUD.dismiss()
             guard let code = statusCode, code == 200 else{
-                SVProgressHUD.showError(withStatus: String.localizedStringWithFormat(NSLocalizedString("home.event.load.error", comment: ""), statusCode ?? 0))
+                SVProgressHUD.showError(withStatus: String.localizedStringWithFormat(NSLocalizedString("home.event.load.error", comment: "The error shown when loading the events"), statusCode ?? 0))
                 return
             }
             self.events = events
@@ -38,7 +40,7 @@ class HomeViewController: UIViewController {
         searchController.isActive = true
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.placeholder = NSLocalizedString("home.searchbar.placeholder", comment: "The search bar placeholder in the home tab")
         
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
@@ -67,9 +69,9 @@ extension HomeViewController: UISearchResultsUpdating{
     }
     
     func filterData(searchCriteria: String){
-        filteredEvents = events.filter({ (event) -> Bool in
-            return event.topLabel.lowercased().contains(searchCriteria.lowercased()) || event.middleLabel.lowercased().contains(searchCriteria.lowercased()) || event.bottomLabel.lowercased().contains(searchCriteria.lowercased())
-        })
+        EventConfigurator.shared.filterEvents(with: searchCriteria, on: self.events){ filteredEvents in
+            self.filteredEvents = filteredEvents
+        }
     }
     
     func searchBarIsEmpty() -> Bool {

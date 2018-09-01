@@ -45,12 +45,19 @@ struct EventWorker{
                     handler(events, statusCode)
                 }
         }
-//            .responseString{ data in
-//
-//            print(data)
-//
-//        }
-        
-//
+    }
+    
+    
+    /// Filters a given list of events based on a criteria
+    ///
+    /// - Parameters:
+    ///   - searchCriteria: The string to look for
+    ///   - events: The list of events to search into
+    /// - Returns: The event that match with the search criteria
+    func filterEvents(with searchCriteria: String, on events: [Event]) -> [Event]{
+        let filteredEvents = events.filter({ (event) -> Bool in
+            return event.topLabel.lowercased().contains(searchCriteria.lowercased()) || event.middleLabel.lowercased().contains(searchCriteria.lowercased()) || event.bottomLabel.lowercased().contains(searchCriteria.lowercased())
+        })
+        return filteredEvents
     }
 }
