@@ -8,3 +8,4 @@
 "home.searchbar.placeholder" = "Search";
 "home.event.count.label" = "%u Events >";
 "home.event.load.error" = "Couldn't load the events (Error %u)";
+"home.event.load.refresh.message" = "Refresh content";

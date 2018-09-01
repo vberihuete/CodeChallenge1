@@ -14,28 +14,20 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var containerSV: UIStackView!
     
-    let searchController = UISearchController(searchResultsController: nil)
+    private let searchController = UISearchController(searchResultsController: nil)
+    private let refreshControl = UIRefreshControl()
     
     var filterView : FilterView!
-    var events: [Event] = []
-    var filteredEvents: [Event] = []
+    private var events: [Event] = []
+    private var filteredEvents: [Event] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        SVProgressHUD.show()
-        EventConfigurator.shared.loadEvents{ events, statusCode in
-            SVProgressHUD.dismiss()
-            guard let code = statusCode, code == 200 else{
-                SVProgressHUD.showError(withStatus: String.localizedStringWithFormat(NSLocalizedString("home.event.load.error", comment: "The error shown when loading the events"), statusCode ?? 0))
-                return
-            }
-            self.events = events
-            self.tableView.reloadData()
-        }
+        loadEvents()
     }
     
-    // MARK - Setup
+    // MARK: - Setup
     func setup(){
         searchController.isActive = true
         searchController.searchResultsUpdater = self
@@ -46,14 +38,43 @@ class HomeViewController: UIViewController {
         navigationItem.hidesSearchBarWhenScrolling = true
         definesPresentationContext = false
         
+        self.refreshControl.addTarget(self, action: #selector(self.refreshAction(_:)), for: .valueChanged)
+        self.refreshControl.tintColor =  COLORS.RED
+        self.refreshControl.attributedTitle = NSAttributedString(string: NSLocalizedString("home.event.load.refresh.message", comment: "Loading message to refresh"))
+        
+        self.tableView.addSubview(refreshControl)
         self.tableView.dataSource = self
         
-        filterView = FilterView(items: ["Suggested", "Viewed", "Favorites"], color: .lightGray, selectedColor: UIColor(red: 233/255, green: 16/255, blue: 27/255, alpha: 1), selectedIndex: 0)
+        filterView = FilterView(items: ["Suggested", "Viewed", "Favorites"], color: .lightGray, selectedColor: COLORS.RED, selectedIndex: 0)
         filterView.delegate = self
         
         self.containerSV.insertArrangedSubview(filterView, at: 0)
         
         self.containerSV.addConstraint(NSLayoutConstraint(item: self.filterView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40))
+    }
+    
+    // MARK: - Action
+    
+    /// Handles the event load
+    func loadEvents(){
+        SVProgressHUD.show()
+        EventConfigurator.shared.loadEvents{ events, statusCode in
+            SVProgressHUD.dismiss()
+            guard let code = statusCode, code == 200 else{
+                SVProgressHUD.showError(withStatus: String.localizedStringWithFormat(NSLocalizedString("home.event.load.error", comment: "The error shown when loading the events"), statusCode ?? 0))
+                return
+            }
+            self.events = events
+            self.tableView.reloadData()
+        }
+        self.refreshControl.endRefreshing()
+    }
+    
+    /// The refresh action
+    ///
+    /// - Parameter sender: The sender usually self
+    @objc func refreshAction(_ sender: Any){
+        loadEvents()
     }
 
 }
