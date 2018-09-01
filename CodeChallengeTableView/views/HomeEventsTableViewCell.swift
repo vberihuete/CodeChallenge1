@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeEventsTableViewCell: UITableViewCell {
 
@@ -33,6 +34,14 @@ class HomeEventsTableViewCell: UITableViewCell {
         locationLabel.text = event.middleLabel
         dateLabel.text = event.bottomLabel
         countLabel.text = "" //TODO: ADD LOCALIZED STRING
+        principalImageView.kf.indicatorType = .activity
+        let imageUrl = URL(string: event.imageUrl)
+        if let url = imageUrl{
+            principalImageView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "placeholder_img"), options: nil, progressBlock: nil, completionHandler: nil)
+        }else{
+            principalImageView.image = #imageLiteral(resourceName: "placeholder_img")
+        }
+        
     }
 
 }
