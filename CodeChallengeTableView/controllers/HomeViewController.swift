@@ -28,6 +28,9 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Setup
+    
+    
+    /// Initial setup for views
     func setup(){
         searchController.isActive = true
         searchController.searchResultsUpdater = self
@@ -51,6 +54,26 @@ class HomeViewController: UIViewController {
         self.containerSV.insertArrangedSubview(filterView, at: 0)
         
         self.containerSV.addConstraint(NSLayoutConstraint(item: self.filterView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40))
+        
+        //nav bar buttons
+        
+        let locationFilter = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        locationFilter.addConstraint(NSLayoutConstraint(item: locationFilter, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 20))
+        locationFilter.addConstraint(NSLayoutConstraint(item: locationFilter, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 24))
+        locationFilter.setImage(#imageLiteral(resourceName: "location_nbar"), for: UIControlState())
+        locationFilter.alpha = 0.7
+//        locationFilter.addTarget(self, action: #selector(self.likeAction), for:  UIControlEvents.touchUpInside)
+        let locationButton = UIBarButtonItem(customView: locationFilter)
+        
+        let tuneFilter = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        tuneFilter.addConstraint(NSLayoutConstraint(item: tuneFilter, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 24))
+        tuneFilter.addConstraint(NSLayoutConstraint(item: tuneFilter, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 24))
+        tuneFilter.setImage(#imageLiteral(resourceName: "filter_tune_nbar"), for: UIControlState())
+        tuneFilter.alpha = 0.7
+        //        locationFilter.addTarget(self, action: #selector(self.likeAction), for:  UIControlEvents.touchUpInside)
+        let tuneButton = UIBarButtonItem(customView: tuneFilter)
+        
+        self.navigationItem.rightBarButtonItems = [tuneButton, locationButton]
     }
     
     // MARK: - Action
@@ -84,6 +107,8 @@ class HomeViewController: UIViewController {
 
 //MARK: - Search bar
 
+
+// MARK: - Search Results Delegate
 extension HomeViewController: UISearchResultsUpdating{
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {
@@ -154,6 +179,4 @@ extension HomeViewController: HomeEventsCellDelegate{
     
     func homeEvent(selectEvent at: IndexPath) {
     }
-    
-    
 }
