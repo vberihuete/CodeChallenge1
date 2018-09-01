@@ -11,7 +11,7 @@ import Foundation
 
 //handler([], data.response?.statusCode)
 
-struct EventConfigurator{
+public struct EventConfigurator{
     
     static var shared = EventConfigurator()
     
