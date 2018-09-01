@@ -27,10 +27,18 @@
 		9F4DD95C213A382A0065B738 /* EventConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4DD95B213A382A0065B738 /* EventConfigurator.swift */; };
 		9F4DD960213B2B020065B738 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F4DD95E213B2B020065B738 /* Localizable.strings */; };
 		9F4DD96D213B46E00065B738 /* CodeChallengeTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4DD96C213B46E00065B738 /* CodeChallengeTableViewTests.swift */; };
+		9F4DD97B213B4BA10065B738 /* CodeChallengeTableViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4DD97A213B4BA10065B738 /* CodeChallengeTableViewUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		9F4DD96F213B46E00065B738 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F4DD918213779870065B738 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F4DD91F213779870065B738;
+			remoteInfo = CodeChallengeTableView;
+		};
+		9F4DD97D213B4BA10065B738 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9F4DD918213779870065B738 /* Project object */;
 			proxyType = 1;
@@ -67,6 +75,9 @@
 		9F4DD96A213B46DF0065B738 /* CodeChallengeTableViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeChallengeTableViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F4DD96C213B46E00065B738 /* CodeChallengeTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeChallengeTableViewTests.swift; sourceTree = "<group>"; };
 		9F4DD96E213B46E00065B738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F4DD978213B4BA10065B738 /* CodeChallengeTableViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeChallengeTableViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F4DD97A213B4BA10065B738 /* CodeChallengeTableViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeChallengeTableViewUITests.swift; sourceTree = "<group>"; };
+		9F4DD97C213B4BA10065B738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +90,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9F4DD967213B46DF0065B738 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F4DD975213B4BA10065B738 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -110,6 +128,7 @@
 			children = (
 				9F4DD922213779870065B738 /* CodeChallengeTableView */,
 				9F4DD96B213B46E00065B738 /* CodeChallengeTableViewTests */,
+				9F4DD979213B4BA10065B738 /* CodeChallengeTableViewUITests */,
 				9F4DD921213779870065B738 /* Products */,
 				8E94382E02477E32FA7A2D95 /* Pods */,
 				38C88DA7B4A83618D34C09B4 /* Frameworks */,
@@ -121,6 +140,7 @@
 			children = (
 				9F4DD920213779870065B738 /* CodeChallengeTableView.app */,
 				9F4DD96A213B46DF0065B738 /* CodeChallengeTableViewTests.xctest */,
+				9F4DD978213B4BA10065B738 /* CodeChallengeTableViewUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,6 +236,15 @@
 			path = CodeChallengeTableViewTests;
 			sourceTree = "<group>";
 		};
+		9F4DD979213B4BA10065B738 /* CodeChallengeTableViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9F4DD97A213B4BA10065B738 /* CodeChallengeTableViewUITests.swift */,
+				9F4DD97C213B4BA10065B738 /* Info.plist */,
+			);
+			path = CodeChallengeTableViewUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -256,6 +285,24 @@
 			productReference = 9F4DD96A213B46DF0065B738 /* CodeChallengeTableViewTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		9F4DD977213B4BA10065B738 /* CodeChallengeTableViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F4DD97F213B4BA10065B738 /* Build configuration list for PBXNativeTarget "CodeChallengeTableViewUITests" */;
+			buildPhases = (
+				9F4DD974213B4BA10065B738 /* Sources */,
+				9F4DD975213B4BA10065B738 /* Frameworks */,
+				9F4DD976213B4BA10065B738 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F4DD97E213B4BA10065B738 /* PBXTargetDependency */,
+			);
+			name = CodeChallengeTableViewUITests;
+			productName = CodeChallengeTableViewUITests;
+			productReference = 9F4DD978213B4BA10065B738 /* CodeChallengeTableViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -270,6 +317,10 @@
 						CreatedOnToolsVersion = 9.4.1;
 					};
 					9F4DD969213B46DF0065B738 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 9F4DD91F213779870065B738;
+					};
+					9F4DD977213B4BA10065B738 = {
 						CreatedOnToolsVersion = 9.4.1;
 						TestTargetID = 9F4DD91F213779870065B738;
 					};
@@ -290,6 +341,7 @@
 			targets = (
 				9F4DD91F213779870065B738 /* CodeChallengeTableView */,
 				9F4DD969213B46DF0065B738 /* CodeChallengeTableViewTests */,
+				9F4DD977213B4BA10065B738 /* CodeChallengeTableViewUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -311,6 +363,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9F4DD968213B46DF0065B738 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F4DD976213B4BA10065B738 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -388,6 +447,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9F4DD974213B4BA10065B738 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F4DD97B213B4BA10065B738 /* CodeChallengeTableViewUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -395,6 +462,11 @@
 			isa = PBXTargetDependency;
 			target = 9F4DD91F213779870065B738 /* CodeChallengeTableView */;
 			targetProxy = 9F4DD96F213B46E00065B738 /* PBXContainerItemProxy */;
+		};
+		9F4DD97E213B4BA10065B738 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F4DD91F213779870065B738 /* CodeChallengeTableView */;
+			targetProxy = 9F4DD97D213B4BA10065B738 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -651,6 +723,44 @@
 			};
 			name = Release;
 		};
+		9F4DD980213B4BA10065B738 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TSAUHSF6TJ;
+				INFOPLIST_FILE = CodeChallengeTableViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vbchallenges.CodeChallengeTableViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CodeChallengeTableView;
+			};
+			name = Debug;
+		};
+		9F4DD981213B4BA10065B738 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TSAUHSF6TJ;
+				INFOPLIST_FILE = CodeChallengeTableViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vbchallenges.CodeChallengeTableViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CodeChallengeTableView;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -677,6 +787,15 @@
 			buildConfigurations = (
 				9F4DD972213B46E00065B738 /* Debug */,
 				9F4DD973213B46E00065B738 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F4DD97F213B4BA10065B738 /* Build configuration list for PBXNativeTarget "CodeChallengeTableViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F4DD980213B4BA10065B738 /* Debug */,
+				9F4DD981213B4BA10065B738 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
