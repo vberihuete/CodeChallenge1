@@ -40,7 +40,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-76" translatesAutoresizingMaskIntoConstraints="NO" id="STU-dM-QDy">
                                                                     <rect key="frame" x="0.0" y="0.0" width="355" height="175"/>
                                                                     <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="FoY-rM-Ffk">
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-170" translatesAutoresizingMaskIntoConstraints="NO" id="FoY-rM-Ffk">
                                                                             <rect key="frame" x="0.0" y="0.0" width="355" height="170"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ht6-7Z-Fbn">
@@ -88,7 +88,7 @@
                                                                                         <constraint firstAttribute="trailing" secondItem="fzw-ux-NY4" secondAttribute="trailing" constant="5" id="ns7-5U-1Z6"/>
                                                                                     </constraints>
                                                                                 </stackView>
-                                                                                <view alpha="0.88" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pk1-Aw-mbk">
+                                                                                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pk1-Aw-mbk">
                                                                                     <rect key="frame" x="0.0" y="31" width="355" height="50"/>
                                                                                     <subviews>
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52I-RR-JYr">
@@ -97,7 +97,7 @@
                                                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c3I-ld-qBH">
                                                                                                     <rect key="frame" x="0.0" y="0.0" width="37.5" height="40"/>
                                                                                                     <subviews>
-                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W94-gA-h3m">
+                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W94-gA-h3m">
                                                                                                             <rect key="frame" x="0.0" y="0.0" width="37.5" height="23"/>
                                                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -182,8 +182,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="w8K-qy-bAb">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="organize" id="Jy7-qo-AX4"/>
-                            <barButtonItem systemItem="fastForward" id="XZg-q6-ibt"/>
+                            <barButtonItem systemItem="organize" id="Jy7-qo-AX4">
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                            <barButtonItem systemItem="fastForward" id="XZg-q6-ibt">
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>

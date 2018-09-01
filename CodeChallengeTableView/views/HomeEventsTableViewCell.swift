@@ -53,15 +53,31 @@ class HomeEventsTableViewCell: UITableViewCell {
         }
         
         favoriteImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.favoriteAction(_:))))
+        //gradient
+       
     }
     
     //MARK: - Action
     @objc private func favoriteAction(_ sender: AnyObject){
-        
         favoriteSelected = !favoriteSelected
         favoriteImageView.image = favoriteSelected ? #imageLiteral(resourceName: "favorites_selected") : #imageLiteral(resourceName: "favorites_unselected")
         delegate?.homeEventSelect(favorite: self.indexPath)
-//        self.layoutIfNeeded()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+//        print("called for \(self.eventNameLabel.text) - id: \(self.event.targetId)")
+        if let gradient = self.principalImageView.layer.sublayers?[0] as? CAGradientLayer{
+            gradient.frame = self.principalImageView.frame
+            self.principalImageView.layer.layoutSublayers()
+        }else{
+            let gradient = CAGradientLayer()
+            gradient.frame = self.principalImageView.frame
+            gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+            gradient.locations = [0.5, 1.0]
+            self.principalImageView.layer.insertSublayer(gradient, at: 0)
+        }
+
     }
 
 }
