@@ -86,7 +86,7 @@
                                                                                         <constraint firstAttribute="trailing" secondItem="fzw-ux-NY4" secondAttribute="trailing" constant="5" id="ns7-5U-1Z6"/>
                                                                                     </constraints>
                                                                                 </stackView>
-                                                                                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pk1-Aw-mbk">
+                                                                                <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pk1-Aw-mbk">
                                                                                     <rect key="frame" x="0.0" y="31" width="355" height="50"/>
                                                                                     <subviews>
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52I-RR-JYr">
