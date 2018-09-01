@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
     
     var filterView : FilterView!
     var events: [Event] = []
+    var filteredEvents: [Event] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,13 +69,13 @@ extension HomeViewController: UISearchResultsUpdating{
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {
         filterData(searchCriteria: searchController.searchBar.text ?? "")
-//        self.tableView.reloadData()
+        self.tableView.reloadData()
     }
     
     func filterData(searchCriteria: String){
-//        filteredData = data.filter({ (message) -> Bool in
-//            return (message[DATA.MESSAGE.EMAIL] as? String)?.lowercased().contains(searchCriteria.lowercased()) ?? false || (message[DATA.MESSAGE.NAME] as? String)?.lowercased().contains(searchCriteria.lowercased()) ?? false
-//        })
+        filteredEvents = events.filter({ (event) -> Bool in
+            return event.topLabel.lowercased().contains(searchCriteria.lowercased()) || event.middleLabel.lowercased().contains(searchCriteria.lowercased()) || event.bottomLabel.lowercased().contains(searchCriteria.lowercased())
+        })
     }
     
     func searchBarIsEmpty() -> Bool {
@@ -91,7 +92,6 @@ extension HomeViewController: UISearchResultsUpdating{
 extension HomeViewController: FilterViewDelegate{
     
     func filterView(selected index: Int) {
-//        contentLabel.text = "Selected \(index)"
     }
     
 }
@@ -107,14 +107,14 @@ extension HomeViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return isFiltering() ? filteredEvents.count : events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "homeeventscell") as? HomeEventsTableViewCell else{
             return UITableViewCell()
         }
-        
+        let events : [Event] = isFiltering() ? self.filteredEvents : self.events
         cell.setup(with: events[indexPath.row], in: indexPath)
         cell.delegate = self
         return cell
@@ -126,12 +126,14 @@ extension HomeViewController: UITableViewDataSource{
 
 extension HomeViewController: HomeEventsCellDelegate{
     func homeEvent(favorite at: IndexPath, select: Bool) {
+        
         self.events[at.row].favorite = select
-        print("favorite selected at \(at.row)")
+        if isFiltering(){
+            self.filteredEvents[at.row].favorite = select
+        }
     }
     
     func homeEvent(selectEvent at: IndexPath) {
-        print("Event selected at \(at.row)")
     }
     
     
