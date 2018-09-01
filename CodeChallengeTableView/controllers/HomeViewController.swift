@@ -25,17 +25,12 @@ class HomeViewController: UIViewController {
         setup()
         EventConfigurator.shared.loadEvents{ events, statusCode in
             guard let code = statusCode, code == 200 else{
-                SVProgressHUD.showError(withStatus: "Couldn't load the events (Error \(statusCode ?? 0))") //TODO: Change to localized string
+                SVProgressHUD.showError(withStatus: String.localizedStringWithFormat(NSLocalizedString("home.event.load.error", comment: ""), statusCode ?? 0))
                 return
             }
             self.events = events
             self.tableView.reloadData()
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK - Setup
@@ -44,7 +39,6 @@ class HomeViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
-        
         
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true

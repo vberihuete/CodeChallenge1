@@ -6,3 +6,4 @@
   Copyright © 2018 vbchallenges. All rights reserved.
 */
 "home.event.count.label" = "%u Events >";
+"home.event.load.error" = "Couldn't load the events (Error %u)";
