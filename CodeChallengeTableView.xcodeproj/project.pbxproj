@@ -25,6 +25,7 @@
 		9F4DD957213A312C0065B738 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4DD956213A312C0065B738 /* Dispatch.swift */; };
 		9F4DD959213A31520065B738 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4DD958213A31520065B738 /* Constants.swift */; };
 		9F4DD95C213A382A0065B738 /* EventConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4DD95B213A382A0065B738 /* EventConfigurator.swift */; };
+		9F4DD960213B2B020065B738 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F4DD95E213B2B020065B738 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		9F4DD956213A312C0065B738 /* Dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
 		9F4DD958213A31520065B738 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9F4DD95B213A382A0065B738 /* EventConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventConfigurator.swift; sourceTree = "<group>"; };
+		9F4DD95F213B2B020065B738 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9F4DD961213B2B1B0065B738 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,7 @@
 		9F4DD922213779870065B738 /* CodeChallengeTableView */ = {
 			isa = PBXGroup;
 			children = (
+				9F4DD95E213B2B020065B738 /* Localizable.strings */,
 				9F4DD94D213A19330065B738 /* storyboards */,
 				9F4DD923213779870065B738 /* AppDelegate.swift */,
 				9F4DD92A2137798A0065B738 /* Assets.xcassets */,
@@ -245,6 +249,7 @@
 				9F4DD92B2137798A0065B738 /* Assets.xcassets in Resources */,
 				9F4DD946213A18C00065B738 /* Explore.storyboard in Resources */,
 				9F4DD929213779870065B738 /* Main.storyboard in Resources */,
+				9F4DD960213B2B020065B738 /* Localizable.strings in Resources */,
 				9F4DD943213A189E0065B738 /* Home.storyboard in Resources */,
 				9F4DD94C213A19230065B738 /* Account.storyboard in Resources */,
 			);
@@ -362,6 +367,15 @@
 				9F4DD94B213A19230065B738 /* Base */,
 			);
 			name = Account.storyboard;
+			sourceTree = "<group>";
+		};
+		9F4DD95E213B2B020065B738 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F4DD95F213B2B020065B738 /* Base */,
+				9F4DD961213B2B1B0065B738 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

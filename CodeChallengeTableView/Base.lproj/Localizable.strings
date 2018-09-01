@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  CodeChallengeTableView
+
+  Created by Vincent Berihuete on 9/1/18.
+  Copyright © 2018 vbchallenges. All rights reserved.
+*/
+
+"home.event.count.label" = "%u Events >";

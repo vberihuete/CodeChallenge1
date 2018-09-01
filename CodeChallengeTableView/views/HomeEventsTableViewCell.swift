@@ -41,7 +41,7 @@ class HomeEventsTableViewCell: UITableViewCell {
         favoriteImageView.image = event.favorite ? #imageLiteral(resourceName: "favorites_selected") : #imageLiteral(resourceName: "favorites_unselected")
         locationLabel.text = event.middleLabel
         dateLabel.text = event.bottomLabel
-        countLabel.text = "" //TODO: ADD LOCALIZED STRING
+        countLabel.text = String.localizedStringWithFormat(NSLocalizedString("home.event.count.label", comment: ""), event.eventCount)
         principalImageView.kf.indicatorType = .activity
         let imageUrl = URL(string: event.imageUrl)
         if let url = imageUrl{
