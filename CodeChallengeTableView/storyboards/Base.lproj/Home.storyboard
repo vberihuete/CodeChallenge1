@@ -35,10 +35,10 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5x-OZ-iau">
-                                                            <rect key="frame" x="10" y="5" width="355" height="170"/>
+                                                            <rect key="frame" x="10" y="5" width="355" height="165"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-76" translatesAutoresizingMaskIntoConstraints="NO" id="STU-dM-QDy">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="170"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-81" translatesAutoresizingMaskIntoConstraints="NO" id="STU-dM-QDy">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="165"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-170" translatesAutoresizingMaskIntoConstraints="NO" id="FoY-rM-Ffk">
                                                                             <rect key="frame" x="0.0" y="0.0" width="355" height="165"/>
@@ -56,7 +56,7 @@
                                                                             </constraints>
                                                                         </stackView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7Ft-HL-6CD">
-                                                                            <rect key="frame" x="0.0" y="89" width="355" height="81"/>
+                                                                            <rect key="frame" x="0.0" y="84" width="355" height="81"/>
                                                                             <subviews>
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="naz-0U-cs7">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="355" height="26"/>
