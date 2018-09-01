@@ -8,5 +8,5 @@ target 'CodeChallengeTableView' do
   # Pods for CodeChallengeTableView
 pod 'Alamofire', '~> 4.4'
 pod 'SVProgressHUD'
-pod 'Kingfisher', '~> 3.0'
+pod 'Kingfisher', '~> 4.8.1'
 end

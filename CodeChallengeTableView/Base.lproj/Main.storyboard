@@ -34,6 +34,11 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qb4-K1-lgF">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.9137254901960784" green="0.062745098039215685" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="Ca1-WW-VhV" kind="relationship" relationship="viewControllers" id="DbG-cd-1Jf"/>
@@ -65,7 +70,7 @@
             </objects>
             <point key="canvasLocation" x="972" y="33.733133433283363"/>
         </scene>
-        <!--Item-->
+        <!--Explore-->
         <scene sceneID="Vc1-FY-pSy">
             <objects>
                 <viewController id="kAY-Cp-oIq" sceneMemberID="viewController">
@@ -75,13 +80,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="DNs-ef-ybd"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="f8r-fB-0jP"/>
+                    <tabBarItem key="tabBarItem" title="Explore" image="explore_tbar" id="f8r-fB-0jP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qrc-FT-v2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="963" y="717"/>
+            <point key="canvasLocation" x="1097" y="756"/>
         </scene>
-        <!--Item-->
+        <!--My Tickets-->
         <scene sceneID="776-R1-dQx">
             <objects>
                 <viewController id="pGI-OY-juT" sceneMemberID="viewController">
@@ -91,13 +96,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="IuO-zi-N4y"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="BP0-Zd-BqG"/>
+                    <tabBarItem key="tabBarItem" title="My Tickets" image="my_tickets_tbar" id="BP0-Zd-BqG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJC-ED-Lh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="962" y="1442"/>
         </scene>
-        <!--Item-->
+        <!--Account-->
         <scene sceneID="mra-wd-TBc">
             <objects>
                 <viewController id="30p-Nb-Hvl" sceneMemberID="viewController">
@@ -107,7 +112,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="QPp-cp-70e"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Qeb-HL-Yzt"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="account_tbar" id="Qeb-HL-Yzt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n18-cs-Tgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,6 +120,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="account_tbar" width="23" height="25"/>
+        <image name="explore_tbar" width="30" height="30"/>
         <image name="home_tbar" width="32" height="30"/>
+        <image name="my_tickets_tbar" width="32" height="32"/>
     </resources>
 </document>
