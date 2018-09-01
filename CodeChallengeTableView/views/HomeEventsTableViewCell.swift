@@ -13,6 +13,8 @@ class HomeEventsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var principalImageView: UIImageView!
+    @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var favoriteImageView: UIImageView!
     @IBOutlet weak var detailContainer: UIView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -21,6 +23,12 @@ class HomeEventsTableViewCell: UITableViewCell {
     private var indexPath: IndexPath!
     private var event: Event!
     
+    private var favoriteSelected = false
+    
+    var delegate: HomeEventsCellDelegate?
+    
+    
+    //MARK: - Setup
     func setup(with event: Event, in indexPath: IndexPath){
         
         self.containerView.layer.masksToBounds = true
@@ -31,6 +39,8 @@ class HomeEventsTableViewCell: UITableViewCell {
         self.event = event
         self.indexPath = indexPath
         
+        eventNameLabel.text = event.topLabel
+        favoriteImageView.image = favoriteSelected ? #imageLiteral(resourceName: "favorites_selected") : #imageLiteral(resourceName: "favorites_unselected")
         locationLabel.text = event.middleLabel
         dateLabel.text = event.bottomLabel
         countLabel.text = "" //TODO: ADD LOCALIZED STRING
@@ -42,6 +52,23 @@ class HomeEventsTableViewCell: UITableViewCell {
             principalImageView.image = #imageLiteral(resourceName: "placeholder_img")
         }
         
+        favoriteImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.favoriteAction(_:))))
+    }
+    
+    //MARK: - Action
+    @objc private func favoriteAction(_ sender: AnyObject){
+        
+        favoriteSelected = !favoriteSelected
+        favoriteImageView.image = favoriteSelected ? #imageLiteral(resourceName: "favorites_selected") : #imageLiteral(resourceName: "favorites_unselected")
+        delegate?.homeEventSelect(favorite: self.indexPath)
+//        self.layoutIfNeeded()
     }
 
+}
+
+protocol HomeEventsCellDelegate{
+    
+    func homeEventSelect(favorite at:IndexPath)
+    
+    func homeEventSelect(event at: IndexPath)
 }
