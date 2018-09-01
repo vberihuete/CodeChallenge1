@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class HomeViewController: UIViewController {
 
@@ -16,11 +17,19 @@ class HomeViewController: UIViewController {
     let searchController = UISearchController(searchResultsController: nil)
     
     var filterView : FilterView!
+    var events: [Event] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setup()
+        EventConfigurator.shared.loadEvents{ events, statusCode in
+            guard let code = statusCode, code == 200 else{
+                SVProgressHUD.showError(withStatus: "Couldn't load the events (Error \(statusCode ?? 0))") //TODO: Change to localized string
+                return
+            }
+            self.events = events
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,9 +44,12 @@ class HomeViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         
+        
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         definesPresentationContext = false
+        
+        self.tableView.dataSource = self
         
         filterView = FilterView(items: ["Suggested", "Viewed", "Favorites"], color: .lightGray, selectedColor: UIColor(red: 233/255, green: 16/255, blue: 27/255, alpha: 1), selectedIndex: 0)
         filterView.delegate = self
@@ -82,4 +94,29 @@ extension HomeViewController: FilterViewDelegate{
 //        contentLabel.text = "Selected \(index)"
     }
     
+}
+
+
+//MARK: - Tableview Datasource
+
+extension HomeViewController: UITableViewDataSource{
+//    homeeventscell
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return events.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "homeeventscell") as? HomeEventsTableViewCell else{
+            return UITableViewCell()
+        }
+        
+        cell.setup(with: events[indexPath.row], in: indexPath)
+        
+        return cell
+    }
 }
