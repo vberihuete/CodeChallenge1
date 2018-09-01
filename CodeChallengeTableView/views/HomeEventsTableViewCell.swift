@@ -23,8 +23,6 @@ class HomeEventsTableViewCell: UITableViewCell {
     private var indexPath: IndexPath!
     private var event: Event!
     
-    private var favoriteSelected = false
-    
     var delegate: HomeEventsCellDelegate?
     
     
@@ -40,7 +38,7 @@ class HomeEventsTableViewCell: UITableViewCell {
         self.indexPath = indexPath
         
         eventNameLabel.text = event.topLabel
-        favoriteImageView.image = favoriteSelected ? #imageLiteral(resourceName: "favorites_selected") : #imageLiteral(resourceName: "favorites_unselected")
+        favoriteImageView.image = event.favorite ? #imageLiteral(resourceName: "favorites_selected") : #imageLiteral(resourceName: "favorites_unselected")
         locationLabel.text = event.middleLabel
         dateLabel.text = event.bottomLabel
         countLabel.text = "" //TODO: ADD LOCALIZED STRING
@@ -59,14 +57,13 @@ class HomeEventsTableViewCell: UITableViewCell {
     
     //MARK: - Action
     @objc private func favoriteAction(_ sender: AnyObject){
-        favoriteSelected = !favoriteSelected
-        favoriteImageView.image = favoriteSelected ? #imageLiteral(resourceName: "favorites_selected") : #imageLiteral(resourceName: "favorites_unselected")
-        delegate?.homeEventSelect(favorite: self.indexPath)
+        event.favorite = !event.favorite
+        favoriteImageView.image = event.favorite ? #imageLiteral(resourceName: "favorites_selected") : #imageLiteral(resourceName: "favorites_unselected")
+        delegate?.homeEvent(favorite: self.indexPath, select: event.favorite)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-//        print("called for \(self.eventNameLabel.text) - id: \(self.event.targetId)")
         if let gradient = self.principalImageView.layer.sublayers?[0] as? CAGradientLayer{
             gradient.frame = self.principalImageView.frame
             self.principalImageView.layer.layoutSublayers()
@@ -84,7 +81,7 @@ class HomeEventsTableViewCell: UITableViewCell {
 
 protocol HomeEventsCellDelegate{
     
-    func homeEventSelect(favorite at:IndexPath)
+    func homeEvent(favorite at:IndexPath, select: Bool)
     
-    func homeEventSelect(event at: IndexPath)
+    func homeEvent(selectEvent at: IndexPath)
 }

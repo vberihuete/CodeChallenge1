@@ -125,11 +125,12 @@ extension HomeViewController: UITableViewDataSource{
 //MARK: - Home event cell delegate
 
 extension HomeViewController: HomeEventsCellDelegate{
-    func homeEventSelect(favorite at: IndexPath) {
+    func homeEvent(favorite at: IndexPath, select: Bool) {
+        self.events[at.row].favorite = select
         print("favorite selected at \(at.row)")
     }
     
-    func homeEventSelect(event at: IndexPath) {
+    func homeEvent(selectEvent at: IndexPath) {
         print("Event selected at \(at.row)")
     }
     

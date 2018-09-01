@@ -18,6 +18,7 @@ struct Event {
     var targetId: Int
     var startDate: Int64
     var rank: Int
+    var favorite: Bool = false //temporary added here, to be removed on favorite implementation
     
     init(topLabel: String, middleLabel: String, bottomLabel: String, eventCount: Int, imageUrl: String, targetId: Int, startDate: Int64, rank: Int) {
         self.topLabel = topLabel
