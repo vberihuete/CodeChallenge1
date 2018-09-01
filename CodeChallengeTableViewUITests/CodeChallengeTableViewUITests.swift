@@ -24,31 +24,33 @@ class CodeChallengeTableViewUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testTabSuggested(){
+    
+    /// Goes to the suggested tab and checks if the down bar appears meaning it was selected
+    func testFilterTabSuggested(){
         app.staticTexts["Suggested"].tap()
         XCTAssertTrue(app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.exists)
     }
     
-    func testTabViewed(){
+    /// Goes to the viewed tab and checks if the down bar appears meaning it was selected
+    func testFilterTabViewed(){
         app.staticTexts["Viewed"].tap()
         XCTAssertTrue(app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.exists)
     }
     
-    func testTabFavorites(){
+    /// Goes to the Favorites tab and checks if the down bar appears meaning it was selected
+    func testFilterTabFavorites(){
         app.staticTexts["Favorites"].tap()
         XCTAssertTrue(app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 2).children(matching: .other).element.children(matching: .other).element.exists)
     }
     
-   
-    
-//    func testFilterTab(){
-//
-//        executeTestTabViewed()
-//        executeTestTabFavorites()
-//        executeTestTabSuggested()
-//
-//
-//
-//    }
+   /// Goes into some of the different view controllers through the tab bar ending in the home one
+    func testTabInteraction(){
+        
+        let tabBarsQuery = app.tabBars
+        tabBarsQuery.buttons["My Tickets"].tap()
+        tabBarsQuery.buttons["Home"].tap()
+        XCTAssert(app.staticTexts["Suggested"].exists, "Navigation to home view controller didn't work")
+        
+    }
     
 }
