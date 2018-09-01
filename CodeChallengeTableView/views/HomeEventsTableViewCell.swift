@@ -32,7 +32,7 @@ class HomeEventsTableViewCell: UITableViewCell {
         self.containerView.layer.masksToBounds = true
         self.containerView.layer.borderWidth = 1
         self.containerView.layer.borderColor = UIColor.lightGray.cgColor
-        self.containerView.layer.cornerRadius = 5
+        self.containerView.layer.cornerRadius = 3
         
         self.event = event
         self.indexPath = indexPath

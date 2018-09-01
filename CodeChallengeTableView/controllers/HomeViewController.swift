@@ -57,7 +57,9 @@ class HomeViewController: UIViewController {
     
     /// Handles the event load
     func loadEvents(){
-        SVProgressHUD.show()
+        if events.isEmpty{
+            SVProgressHUD.show()
+        }
         EventConfigurator.shared.loadEvents{ events, statusCode in
             SVProgressHUD.dismiss()
             guard let code = statusCode, code == 200 else{
